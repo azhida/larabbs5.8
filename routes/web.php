@@ -1,6 +1,7 @@
 <?php
 
 Route::get('/', 'PagesController@root')->name('root');
+Route::get('permission-denied', 'PagesController@permissionDenied')->name('permission-denied');
 
 // 用户身份验证相关的路由
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');

@@ -58,15 +58,18 @@ $api->version('v1', [
             // 发布话题
             $api->post('topics', 'TopicsController@store')
                 ->name('api.topics.store');
-            // 修改话题
-            $api->patch('topics/{topic}', 'TopicsController@update')
-                ->name('api.topics.update');
             // 删除话题
             $api->delete('topics/{topic}', 'TopicsController@destroy')
                 ->name('api.topics.destroy');
+            // 修改话题
+            $api->patch('topics/{topic}', 'TopicsController@update')
+                ->name('api.topics.update');
             // 话题列表
             $api->get('topics', 'TopicsController@index')
                 ->name('api.topics.index');
+            // 话题详情
+            $api->get('topics/{topic}', 'TopicsController@show')
+                ->name('api.topics.show');
             // 某一用户的话题列表
             $api->get('users/{user}/topics', 'TopicsController@userIndex')
                 ->name('api.users.topics.index');

@@ -64,6 +64,12 @@ $api->version('v1', [
             // 删除话题
             $api->delete('topics/{topic}', 'TopicsController@destroy')
                 ->name('api.topics.destroy');
+            // 话题列表
+            $api->get('topics', 'TopicsController@index')
+                ->name('api.topics.index');
+            // 某一用户的话题列表
+            $api->get('users/{user}/topics', 'TopicsController@userIndex')
+                ->name('api.users.topics.index');
         });
     });
 });

@@ -73,6 +73,9 @@ $api->version('v1', [
             // 某一用户的话题列表
             $api->get('users/{user}/topics', 'TopicsController@userIndex')
                 ->name('api.users.topics.index');
+            // 发布回复
+            $api->post('topics/{topic}/replies', 'RepliesController@store')
+                ->name('api.topics.replies.store');
         });
     });
 });

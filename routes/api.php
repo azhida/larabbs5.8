@@ -39,6 +39,12 @@ $api->version('v1', [
         // 分类接口
         $api->get('categories', 'CategoriesController@index')
             ->name('api.categories.index');
+        // 话题列表
+        $api->get('topics', 'TopicsController@index')
+            ->name('api.topics.index');
+        // 话题详情
+        $api->get('topics/{topic}', 'TopicsController@show')
+            ->name('api.topics.show');
         // 某个用户发布的话题
         $api->get('users/{user}/topics', 'TopicsController@userIndex')
             ->name('api.users.topics.index');
@@ -73,18 +79,15 @@ $api->version('v1', [
             // 修改话题
             $api->patch('topics/{topic}', 'TopicsController@update')
                 ->name('api.topics.update');
-            // 话题列表
-            $api->get('topics', 'TopicsController@index')
-                ->name('api.topics.index');
-            // 话题详情
-            $api->get('topics/{topic}', 'TopicsController@show')
-                ->name('api.topics.show');
             // 发布回复
             $api->post('topics/{topic}/replies', 'RepliesController@store')
                 ->name('api.topics.replies.store');
             // 删除回复
             $api->delete('topics/{topic}/replies/{reply}', 'RepliesController@destroy')
                 ->name('api.topics.replies.destroy');
+            // 通知列表
+            $api->get('user/notifications', 'NotificationsController@index')
+                ->name('api.user.notifications.index');
         });
     });
 });
